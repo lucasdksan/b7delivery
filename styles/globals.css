@@ -1,26 +1,60 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  outline: 0;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+p, 
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+fieldset {
+  border: 0;
+}
+
+:root {
+  --main-white: #FFFFFF;
+  --main-black: #1B1B1B;
+  --main-gray: #F9F9FB;
+  --main-yellow: #FB9400;
+  --main-sub-gray: #979797;
+  --main-gray-transparent: rgba(151, 151, 151, 0.8);
+  --main-shadow: rgba(0, 0, 0, 0.08);
+
+  --main-font: "Inter";
+  --size-r: 400;
+  --size-sb: 600;
+  --size-b: 700;
+  --size-eb: 800;
+
+  --default-size: 5px;
+  --default-zero: 0px;
 }

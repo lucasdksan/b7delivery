@@ -1,0 +1,30 @@
+.container {
+    background-color: var(--main-white);
+    display: flex;
+    padding:  var(--default-size);
+
+    border-radius: var(--default-size);
+    border: calc(var(--default-size) / 5) solid var(--main-white);
+}
+
+.input {
+    border: var(--default-zero);
+    outline: var(--default-zero);
+    flex: 1;
+
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(3 * var(--default-size));
+    line-height: calc(7 * var(--default-size));
+
+    color: var(--main-sub-gray);
+}
+
+.button {
+    width: calc( 10 * var(--default-size));
+    height: calc( 10 * var(--default-size));
+    background-color: var(--main-gray);
+    margin-right: calc(3 * var(--default-size));
+    border-radius: var(--default-size);
+}
