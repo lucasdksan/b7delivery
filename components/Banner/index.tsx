@@ -1,5 +1,6 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
 import "swiper/css";
 import styles from "./styles.module.css";
 
@@ -9,6 +10,12 @@ const Banner = () => {
             <Swiper
                 slidesPerView={1}
                 className={styles.swiper}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                loop
+                modules={[Autoplay]}
             >
                 <SwiperSlide className={styles.slide}>
                     <div className={styles.bannerImg}>1</div>

@@ -60,7 +60,7 @@
 .menuButtonLines {
   width: 100%;
   height: calc(var(--default-size) / 2);
-  background-color: var(--main-yellow);
+  background-color: var(--main-black);
 }
 
 .headerBottom {
@@ -71,4 +71,10 @@
   width: auto;
   height: auto;
   margin: calc( 5 * var(--default-size));
+}
+
+.grid {
+  display: grid;
+  gap: calc(5 * var(--default-size));
+  grid-template-columns: repeat(2, 1fr);
 }

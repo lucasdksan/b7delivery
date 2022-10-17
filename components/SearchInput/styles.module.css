@@ -27,4 +27,8 @@
     background-color: var(--main-gray);
     margin-right: calc(3 * var(--default-size));
     border-radius: var(--default-size);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
