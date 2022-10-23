@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--main-black);
+    padding: calc(var(--default-size) * 4);
+    color: var(--main-black);
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(3 * var(--default-size));
+    line-height: calc(4 * var(--default-size));
+    text-align: center;
+    border-radius: var(--default-size);
+    width: 100%;
+}

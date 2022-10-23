@@ -1,0 +1,26 @@
+.container {
+    width: 100%;
+    height: calc(var(--default-size) * 12);
+    background-color: var(--main-gray);
+    border: 2px solid var(--main-gray);
+    border-radius: var(--default-size);
+    padding: var(--default-zero) calc(var(--default-size) * 3);
+    display: flex;
+}
+
+.input {
+    flex: 1;
+    background: transparent;
+    color: var(--main-black);
+
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+}
+
+.showPassword {
+    display: flex;
+    align-items: center;
+}

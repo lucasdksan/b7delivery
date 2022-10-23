@@ -1,0 +1,53 @@
+.container {
+    padding: calc(10 * var(--default-size)) calc(5 * var(--default-size));
+    background-color: var(--main-white);
+}
+
+.headerName {
+    font-weight: bold;
+    font-size: calc(var(--default-size) * 7);
+    margin-top: calc(var(--default-size) * 4);
+    margin-bottom: calc(var(--default-size) * 8);
+    text-align: center;
+}
+
+.subTitleArea {
+    display: flex;
+    margin-bottom: calc(var(--default-size) * 11);
+    border-bottom: 1.5px solid var(--main-sub-gray-3);
+    width: 100%;
+}
+
+.subTitle {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 4);
+    line-height: calc(var(--default-size) * 4);
+    text-align: center;
+    color: var(--main-shadow-text);
+    margin: auto;
+    width: calc(var(--default-size) * 45);
+    padding-bottom: calc(var(--default-size) * 8);
+    border-bottom: 1.5px solid var(--main-black);
+}
+
+.formArea {
+
+}
+
+.inputArea {
+
+}
+
+.forgetArea {
+
+}
+
+.signuArea {
+    
+}
+
+.forgetButton {
+
+}
