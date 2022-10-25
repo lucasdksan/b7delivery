@@ -4,7 +4,7 @@
 
 Sistema de Delivery
 
-Pessoas que vão utilizar esse sistema:
+* Pessoas que vão utilizar esse sistema:
 
 - Usuário Final.
 - O estabelecimento.
@@ -12,7 +12,7 @@ Pessoas que vão utilizar esse sistema:
 
 ![img](./README/mapaMental.png)
 
-Telas:
+* Telas:
 
 - Home (Listagem de promoções e produtos)
 - Página do produto específico
@@ -38,10 +38,39 @@ Telas:
 
 ![img](./README/mapaMental4.png)
 
-Definir as tecnologias:
+* Definir as tecnologias:
 
 - NextJS (com SSR)
 - Prisma (ORM)
 - MySQL / PostgreSQL
 - API RESTful
 - Typescript
+
+* Análise do layout e divisão de componentes que se repete.
+
+Link do layout: https://www.figma.com/file/6M8Pq62vm6QYPqTsYJBCmf/Ui---B7Delivery?node-id=403%3A14
+
+- Banner
+
+![img](./README/Banner.png)
+
+- Button
+
+![img](./README/Buttons.png)
+
+- HeadComponent
+- Header
+
+![img](./README/Header.png)
+
+- Input
+
+![img](./README/Inputs.png)
+
+- ProductItem
+
+![img](./README/ProductItems.png)
+
+- SearchInput
+
+![img](./README/SearchInput.png)
