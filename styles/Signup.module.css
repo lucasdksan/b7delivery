@@ -27,7 +27,7 @@
     text-align: center;
     color: var(--main-shadow-text);
     margin: auto;
-    width: calc(var(--default-size) * 45);
+    width: calc(var(--default-size) * 55);
     padding-bottom: calc(var(--default-size) * 8);
     border-bottom: 1.5px solid var(--main-black);
 }
@@ -45,11 +45,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: calc(var(--default-size) * 12);
-}
-
-.contentLine {
-    padding-bottom: calc(var(--default-size) * 12);
 }
 
 .contentLine a {

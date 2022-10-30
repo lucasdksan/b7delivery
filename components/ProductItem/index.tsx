@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useAppContext } from "../../contexts/AppContext";
+import { libFormatter } from "../../libs/useFormatter";
 import { Product } from "../../types/Product";
 import styles from "./styles.module.css";
 
@@ -9,6 +10,8 @@ interface ProductProps {
 
 const ProductItem = ({ data }: ProductProps)=>{
     const { tenant } = useAppContext();
+    const formatter = libFormatter();
+    const value = `${data.price.toFixed(2)}`;
     
 
     return(
@@ -22,7 +25,7 @@ const ProductItem = ({ data }: ProductProps)=>{
                     <div className={styles.infoContent}>
                         <span className={styles.catName}>{data.categoryName}</span>
                         <strong className={styles.name}>{data.name}</strong>
-                        <span className={styles.price} style={{color: tenant?.mainColor}}>R$ {data.price}</span>
+                        <span className={styles.price} style={{color: tenant?.mainColor}}>{formatter.formatPrice(data.price)}</span>
                     </div>
                 </div>
             </a>

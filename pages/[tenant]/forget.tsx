@@ -4,17 +4,15 @@ import { useRouter } from "next/router";
 import { useAppContext } from "../../contexts/AppContext";
 import { libApi } from "../../libs/useApi";
 import { TenantProps } from "../../types/Tenant";
-import styles from "../../styles/Login.module.css";
+import styles from "../../styles/Forget.module.css";
 import HeadComponent from "../../components/HeadComponent";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import Link from "next/link";
 
-const Login = ( data:Props )=>{
+const ForGet = ( data:Props )=>{
     const { setTenant, tenant } = useAppContext();
     const [ email, setEmail ] = useState("");
-    const [ password, setPassword ] = useState("");
     const router = useRouter();
 
     useEffect(()=>{
@@ -22,26 +20,23 @@ const Login = ( data:Props )=>{
     },[]);
 
     const handleSubmit = ()=> {
-
-    }
-
-    const handleSignUp = ()=>{
-        router.push(`/${data.tenant.slug}/signup`);
+        router.push(`/${data.tenant.slug}/forget-success`);
     }
 
     return(
         <div className={styles.container}>
             <HeadComponent
-                title={`Login | ${data.tenant.name}`}
+                title={`Esqueci a senha | ${data.tenant.name}`}
             />
             <Header 
-                backHref={`/${data.tenant.slug}`}
+                backHref={`/${data.tenant.slug}/login`}
                 color={data.tenant.mainColor}
             />
             <h1 className={styles.headerName}>{data.tenant.name}</h1>
             <div className={styles.subTitleArea}>
+                <span className={styles.subTitleHeader}>Esqueceu sua senha?</span>
                 <span className={styles.subTitle} style={{borderBottomColor: data.tenant.mainColor}}>
-                    Use suas credenciais para realizar o login.
+                    Preencha o campo com seu e-mail e receba as instruções necessárias para redefinir  a sua senha.
                 </span>
             </div>
             <form className={styles.formArea}>
@@ -54,40 +49,19 @@ const Login = ( data:Props )=>{
                     />
                 </fieldset>
                 <fieldset className={styles.inputArea}>
-                    <Input
-                        color={data.tenant.mainColor}
-                        placeholder="Digite sua senha"
-                        value={password}
-                        onChange={setPassword}
-                        password
-                    />
-                </fieldset>
-                <fieldset className={styles.inputArea}>
                     <Button
                         color={data.tenant.mainColor}
-                        label="Entrar"
+                        label="Enviar"
                         onClick={handleSubmit}
                         fill
                     />
                 </fieldset>
             </form>
-            <div className={styles.forgetArea}>
-                <div className={styles.contentLine} style={{borderBottomColor: data.tenant.mainColor}}>
-                    <span className={styles.forgetArea_text}>Esqueceu sua senha?</span> <Link className={styles.forgetButton} style={{color: data.tenant.mainColor}} href={`/${data.tenant.slug}/forget`}><a style={{color: data.tenant.mainColor}}>Clique aqui</a></Link>
-                </div>
-            </div>
-            <div className={styles.signuArea}>
-                <Button
-                    color={data.tenant.mainColor}
-                    label="Quero me cadastrar"
-                    onClick={handleSignUp}
-                />
-            </div>
         </div>
     );
 }
 
-export default Login;
+export default ForGet;
 
 type Props = {
     tenant: TenantProps;

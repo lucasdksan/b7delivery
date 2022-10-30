@@ -1,0 +1,55 @@
+.container {
+    padding: calc(10 * var(--default-size)) calc(5 * var(--default-size));
+    background-color: var(--main-white);
+}
+
+.headerName {
+    font-weight: bold;
+    font-size: calc(var(--default-size) * 7);
+    margin-top: calc(var(--default-size) * 4);
+    margin-bottom: calc(var(--default-size) * 8);
+    text-align: center;
+}
+
+.subTitleHeader {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 5);
+    line-height: calc(var(--default-size) * 6);
+    text-align: center;
+    color: var(--main-black);
+    margin-bottom: calc(var(--default-size) * 6);
+}
+
+.iconArea {
+    display: flex;
+    justify-content: center;
+    margin: calc(var(--default-size) * 20) auto calc(var(--default-size) * 11) auto;
+}
+
+.subTitleArea {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.subTitle {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 4);
+    line-height: calc(var(--default-size) * 4);
+    text-align: center;
+    color: var(--main-shadow-text);
+    margin: auto;
+    width: calc(var(--default-size) * 60);
+}
+
+.formArea {
+    margin-top: calc(var(--default-size) * 8);
+}
+
+.inputArea {
+    margin-bottom: calc(var(--default-size) * 6);
+}

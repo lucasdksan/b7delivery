@@ -1,16 +1,18 @@
 import { GetServerSideProps } from "next";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Banner from "../../components/Banner";
 import HeadComponent from "../../components/HeadComponent";
 import ProductItem from "../../components/ProductItem";
 import SearchInput from "../../components/SearchInput";
 import { useAppContext } from "../../contexts/AppContext";
-import { useApi } from "../../libs/useApi";
+import { libApi } from "../../libs/useApi";
 import styles from "../../styles/Home.module.css";
+import { Product } from "../../types/Product";
 import { TenantProps } from "../../types/Tenant";
 
 const Home = ( data:Props )=>{
     const { setTenant, tenant } = useAppContext();
+    const [ products, setProducts] = useState<Product[]>(data.products);
 
     useEffect(()=>{
         setTenant(data.tenant)
@@ -49,42 +51,16 @@ const Home = ( data:Props )=>{
                 <Banner />
 
                 <div className={styles.grid}>
-                    <ProductItem 
-                        data={{
-                            id: 1,
-                            categoryName: "Tradiconal",
-                            image: "/tmp/burger.png",
-                            name: "Golden Burger",
-                            price: "25,50",
-                        }}
-                    />
-                    <ProductItem 
-                        data={{
-                            id: 2,
-                            categoryName: "Tradiconal",
-                            image: "/tmp/burger.png",
-                            name: "Golden Burger",
-                            price: "25,50",
-                        }}
-                    />
-                    <ProductItem 
-                        data={{
-                            id: 3,
-                            categoryName: "Tradiconal",
-                            image: "/tmp/burger.png",
-                            name: "Golden Burger",
-                            price: "25,50",
-                        }}
-                    />
-                    <ProductItem 
-                        data={{
-                            id: 4,
-                            categoryName: "Tradiconal",
-                            image: "/tmp/burger.png",
-                            name: "Golden Burger",
-                            price: "25,50",
-                        }}
-                    />
+                    {
+                        products.map((element, index)=>{
+                            return(
+                                <ProductItem
+                                    key={index}
+                                    data={element}
+                                />
+                            )
+                        })
+                    }
                 </div>
             </main>
         </div>
@@ -95,13 +71,15 @@ export default Home;
 
 type Props = {
     tenant: TenantProps;
+    products: Product[];
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const { tenant: tenantSlug } = context.query;
-    const api = useApi();
+    const api = libApi(tenantSlug as string);
 
-    const tenant = await api.getTenant(tenantSlug as string);
+    const tenant = await api.getTenant();
+    const products = await api.getAllProducts();
 
     if(!tenant){
         return {
@@ -114,7 +92,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     return {
         props: {
-            tenant
+            tenant,
+            products
         }
     }
 }
