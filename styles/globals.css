@@ -50,9 +50,12 @@ fieldset {
   --main-sub-gray-2:#B3B3B3;
   --main-sub-gray-3:#E2E2E2;
   --main-sub-white: #FFF9F2;
+  --main-notQt: #F2F4F5;
   --main-gray-transparent: rgba(151, 151, 151, 0.8);
   --main-shadow: rgba(0, 0, 0, 0.08);
   --main-shadow-text: rgba(27, 27, 27, 0.8);
+  --main-shadow-button: rgba(0, 0, 0, .1);
+  --main-background-pdp: #333;
 
   --main-font: "Inter";
   --size-r: 400;
@@ -62,4 +65,6 @@ fieldset {
 
   --default-size: 5px;
   --default-zero: 0px;
+
+  --default-mobileLimit: auto calc(var(--default-size) * 5);
 }

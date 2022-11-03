@@ -7,7 +7,9 @@ const TEMPORARYoneProduct:Product = {
     categoryName: "Tradiconal",
     name: "Golden Burger",
     price: 25.5,
-    description: "2 Blends de carne de 150g, Queijo Cheddar, Bacon Caramelizado, Salada, Molho da casa, Pão brioche artesanal,"
+    description: "2 Blends de carne de 150g, Queijo Cheddar, Bacon Caramelizado, Salada, Molho da casa, Pão brioche artesanal,",
+    max: 10,
+    min: 1,
 }
 
 export const libApi = (tenantSlug: string)=>({

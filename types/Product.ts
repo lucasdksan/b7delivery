@@ -5,4 +5,6 @@ export type Product = {
     price: number;
     categoryName: string;
     description?: string;
+    max: number;
+    min: number;
 }

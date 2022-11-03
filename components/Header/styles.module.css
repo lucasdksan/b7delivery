@@ -19,6 +19,20 @@
     align-items: center;
 }
 
+.leftSide a,
+.rightSide a {
+    width: calc(var(--default-size) * 10);
+    height: calc(var(--default-size) * 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--default-size);
+}
+
+.buttonTransparent {
+    background-color: var(--main-shadow-button);
+}
+
 .title {
     font-family: var(--main-font);
     font-style: normal;

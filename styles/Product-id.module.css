@@ -1,0 +1,120 @@
+.container {
+    background-color: var(--main-white);
+}
+
+.headerArea {
+    position: absolute;
+    left: calc(var(--default-size) * 5);
+    top: calc(var(--default-size) * 13);
+    right: calc(var(--default-size) * 5);;
+}
+
+.headerBg {
+    height: calc(var(--default-size) * 70);
+    background-color: var(--main-background-pdp); 
+    background-image: url("/assets/product-bg.png");
+    background-position:top center;
+    background-repeat: no-repeat;
+
+}
+
+.productImage {
+    text-align: center;
+    margin-top: calc(var(--default-size) * -50);
+}   
+
+.productImage img {
+    width: auto;
+    height: calc(var(--default-size) * 70);
+}
+
+.body {
+    margin: var(--default-mobileLimit);
+}
+
+.containerNames {
+    margin-bottom: calc(var(--default-size) * 7);
+}
+
+.category {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-black);
+    margin-bottom: var(--default-size);
+}
+
+.title {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 8);
+    line-height: calc(var(--default-size) * 10);
+    color: var(--main-black);
+    margin-bottom: calc(var(--default-size) * 5);
+}
+
+.line {
+    margin-bottom: calc(var(--default-size) * 5);
+    border-bottom: 1.5px solid var(--main-black);
+    width: 60%;
+    max-width: calc(var(--default-size) * 56);
+    height: auto;
+    display: flex;
+}
+
+.description {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 5);
+    color: var(--main-shadow-text);
+}
+
+.containerDinamic {
+    margin-bottom: calc(var(--default-size) * 10);
+}
+
+.qtText {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-black);
+    margin-bottom: var(--default-size);
+}
+
+.area {
+    display: flex;
+    align-items: center;
+    margin-top: calc(var(--default-size) * 3);
+}
+
+.areaLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.areaRight {
+    flex: 1;
+    text-align: right;
+}
+
+.valueProduct {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 8);
+    line-height: calc(var(--default-size) * 10);
+    text-align: right;
+    color: var(--main-black);
+}
+
+.buttonArea {
+
+}

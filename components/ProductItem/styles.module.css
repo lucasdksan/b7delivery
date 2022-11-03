@@ -24,6 +24,10 @@
     width: 80%;
     height: auto;
     object-fit: contain;
+    max-width: calc(var(--default-size) * 23);
+    max-height: calc(var(--default-size) * 23);
+    /* max-width: calc(var(--default-size) * 60);
+    max-height: calc(var(--default-size) * 60); */
 }
 
 .infoContent {

@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--main-notQt);
+    border-radius: var(--default-size);
+    overflow: hidden;
+}
+
+.buttonQt {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 5);
+    line-height: calc(var(--default-size) * 6);
+    text-align: center;
+    color: var(--main-white);
+    background-color: var(--main-black);
+
+    width: calc(var(--default-size)*10);
+    height: calc(var(--default-size)*10);
+}
+
+.contentQt {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-b);
+    font-size: calc(var(--default-size) * 4);
+    line-height: calc(var(--default-size) * 4);
+    text-align: center;
+    padding: var(--default-zero) calc(var(--default-size) * 3);
+    color: var(--main-black);
+}
