@@ -4,18 +4,21 @@ import Banner from "../../components/Banner";
 import HeadComponent from "../../components/HeadComponent";
 import ProductItem from "../../components/ProductItem";
 import SearchInput from "../../components/SearchInput";
-import { useAppContext } from "../../contexts/AppContext";
+import SideBar from "../../components/SideBar";
+import { useAppContext } from "../../contexts/app";
 import { libApi } from "../../libs/useApi";
 import styles from "../../styles/Home.module.css";
 import { Product } from "../../types/Product";
 import { TenantProps } from "../../types/Tenant";
 
 const Home = ( data:Props )=>{
-    const { setTenant, tenant } = useAppContext();
+    const { setTanent, tenant } = useAppContext();
+
     const [ products, setProducts] = useState<Product[]>(data.products);
+    const [ sideBarOpen, setSideBarOpen ] = useState(false);
 
     useEffect(()=>{
-        setTenant(data.tenant)
+        setTanent(data.tenant);
     },[]);
 
     const handlerSearch = (value: string)=> {
@@ -34,11 +37,19 @@ const Home = ( data:Props )=>{
                         <span className={styles.headerSubTitle}>O que deseja pra hoje?</span>
                     </div>
                     <div className={styles.headerTopRight}>
-                        <div className={styles.menuButton}>
+                        <button 
+                            className={styles.menuButton}
+                            onClick={()=>setSideBarOpen(true)}
+                        >
                             <span className={styles.menuButtonLines} style={{backgroundColor: tenant?.mainColor}}></span>
                             <span className={styles.menuButtonLines} style={{backgroundColor: tenant?.mainColor}}></span>
                             <span className={styles.menuButtonLines} style={{backgroundColor: tenant?.mainColor}}></span>
-                        </div>
+                        </button>
+                        <SideBar 
+                            tenant={data.tenant}
+                            open={sideBarOpen}
+                            onClose={()=>setSideBarOpen(false)}
+                        />
                     </div>
                 </div>
                 <div className={styles.headerBottom}>

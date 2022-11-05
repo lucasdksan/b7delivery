@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useAppContext } from "../../contexts/AppContext";
+import { useAppContext } from "../../contexts/app";
 import { libApi } from "../../libs/useApi";
 import { TenantProps } from "../../types/Tenant";
 import styles from "../../styles/Signup.module.css";
@@ -12,14 +12,14 @@ import Button from "../../components/Button";
 import Link from "next/link";
 
 const SignUp = ( data:Props )=>{
-    const { setTenant, tenant } = useAppContext();
+    const { tenant, setTanent } = useAppContext();
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const router = useRouter();
 
     useEffect(()=>{
-        setTenant(data.tenant)
+        setTanent(data.tenant);
     },[]);
 
     const handleSubmit = ()=> {

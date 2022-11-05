@@ -1,0 +1,13 @@
+.container {
+    padding: calc(var(--default-size) * 5) var(--default-zero);
+}
+
+.label {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-options-menu);
+    margin-left: calc(var(--default-size) * 5);
+}

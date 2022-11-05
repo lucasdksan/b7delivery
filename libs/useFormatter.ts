@@ -5,5 +5,14 @@ export const libFormatter = ()=>({
             style: "currency",
             currency: "BRL",
         });
+    },
+    formatQuantity: function(qt:number, minDigits:number){
+        const remain = minDigits - qt.toString().length;
+        
+        if(qt.toString().length >= minDigits){
+            return qt.toString();
+        }
+
+        return `${'0'.repeat(remain)}${qt}`;
     }
 })

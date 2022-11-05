@@ -1,13 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
+:root {
+  --main-white: #FFFFFF;
+  --main-black: #1B1B1B;
+  --main-gray: #F9F9FB;
+  --main-yellow: #FB9400;
+  --main-sub-gray: #979797;
+  --main-sub-gray-2:#B3B3B3;
+  --main-sub-gray-3:#E2E2E2;
+  --main-sub-white: #FFF9F2;
+  --main-notQt: #F2F4F5;
+  --main-gray-transparent: rgba(151, 151, 151, 0.8);
+  --main-shadow: rgba(0, 0, 0, 0.08);
+  --main-shadow-text: rgba(27, 27, 27, 0.8);
+  --main-shadow-button: rgba(0, 0, 0, .1);
+  --main-background-pdp: #333;
+  --main-close-btn: #CCC;
+  --main-options-menu: #6A7D8B;
+
+  --main-font: "Inter";
+  --size-r: 400;
+  --size-sb: 600;
+  --size-b: 700;
+  --size-eb: 800;
+
+  --default-size: 5px;
+  --line-size: 1.5px;
+  --default-zero: 0px;
+
+  --default-mobileLimit: auto calc(var(--default-size) * 5);
+  --default-animation: all ease 0.2s;
+}
+
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  padding: var(--default-zero);
+  margin: var(--default-zero);
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--main-font);
 }
 
 a {
@@ -16,8 +48,8 @@ a {
 
 button,
 input {
-  border: 0;
-  outline: 0;
+  border: var(--default-zero);
+  outline: var(--default-zero);
 }
 
 ul,
@@ -34,37 +66,9 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+  margin: var(--default-zero);
 }
 
 fieldset {
-  border: 0;
-}
-
-:root {
-  --main-white: #FFFFFF;
-  --main-black: #1B1B1B;
-  --main-gray: #F9F9FB;
-  --main-yellow: #FB9400;
-  --main-sub-gray: #979797;
-  --main-sub-gray-2:#B3B3B3;
-  --main-sub-gray-3:#E2E2E2;
-  --main-sub-white: #FFF9F2;
-  --main-notQt: #F2F4F5;
-  --main-gray-transparent: rgba(151, 151, 151, 0.8);
-  --main-shadow: rgba(0, 0, 0, 0.08);
-  --main-shadow-text: rgba(27, 27, 27, 0.8);
-  --main-shadow-button: rgba(0, 0, 0, .1);
-  --main-background-pdp: #333;
-
-  --main-font: "Inter";
-  --size-r: 400;
-  --size-sb: 600;
-  --size-b: 700;
-  --size-eb: 800;
-
-  --default-size: 5px;
-  --default-zero: 0px;
-
-  --default-mobileLimit: auto calc(var(--default-size) * 5);
+  border: var(--default-zero);
 }

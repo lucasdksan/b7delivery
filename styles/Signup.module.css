@@ -14,7 +14,7 @@
 .subTitleArea {
     display: flex;
     margin-bottom: calc(var(--default-size) * 11);
-    border-bottom: 1.5px solid var(--main-sub-gray-3);
+    border-bottom: var(--line-size) solid var(--main-sub-gray-3);
     width: 100%;
 }
 
@@ -29,7 +29,7 @@
     margin: auto;
     width: calc(var(--default-size) * 55);
     padding-bottom: calc(var(--default-size) * 8);
-    border-bottom: 1.5px solid var(--main-black);
+    border-bottom: var(--line-size) solid var(--main-black);
 }
 
 .formArea {

@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useAppContext } from "../../contexts/AppContext";
+import { useAppContext } from "../../contexts/app";
 import { libApi } from "../../libs/useApi";
 import { TenantProps } from "../../types/Tenant";
 import styles from "../../styles/ForgetSuccess.module.css";
@@ -11,12 +11,13 @@ import Button from "../../components/Button";
 import Icon from "../../components/Icon";
 
 const ForgetSuccess = (data:Props)=>{
-    const { setTenant, tenant } = useAppContext();
+    const { setTanent, tenant } = useAppContext();
+
     const [ email, setEmail ] = useState("");
     const router = useRouter();
 
     useEffect(()=>{
-        setTenant(data?.tenant)
+        setTanent(data?.tenant);
     },[]);
 
     const handleSubmit = ()=> {

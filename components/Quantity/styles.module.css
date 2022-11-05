@@ -6,6 +6,14 @@
     overflow: hidden;
 }
 
+.trashIcon {
+    width: calc(var(--default-size)*10);
+    height: calc(var(--default-size)*10);
+    border-radius: var(--default-size);
+    margin-right: var(--default-size);
+    background: red;
+}
+
 .buttonQt {
     font-family: var(--main-font);
     font-style: normal;

@@ -58,7 +58,7 @@
 
 .line {
     margin-bottom: calc(var(--default-size) * 5);
-    border-bottom: 1.5px solid var(--main-black);
+    border-bottom: var(--line-size) solid var(--main-black);
     width: 60%;
     max-width: calc(var(--default-size) * 56);
     height: auto;

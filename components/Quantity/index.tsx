@@ -1,3 +1,5 @@
+import { libFormatter } from "../../libs/useFormatter";
+import TrashIcon from "./TrashIcon.svg";
 import styles from "./styles.module.css";
 
 type Props = {
@@ -5,30 +7,52 @@ type Props = {
     count: number;
     min: number;
     max: number;
+    small?: boolean;
     add: ()=> void;
     sub: ()=> void;
 }
 
-const Quantity = ({ color, count, min, max, add, sub }: Props)=>{
+const Quantity = ({ color, count, min, max, small, add, sub }: Props)=>{
+    const formatter = libFormatter();
+
     return(
-        <div className={styles.container}>
-            <button 
-                className={styles.buttonQt}
-                style={{backgroundColor: count == min ? "#F2F4F5" : color}}
-                onClick={sub}
-                disabled={count == min ? true : false}
-            >-</button>
-            <span 
-                className={styles.contentQt}
-                style={{color: color}}
-            >{count}</span>
-            <button 
-                className={styles.buttonQt}
-                style={{backgroundColor: count == max ? "#F2F4F5" : color}}
-                onClick={add}
-                disabled={count == max ? true : false}
-            >+</button>
-        </div>
+        <>
+            {
+                small &&
+                <button className={styles.trashIcon} style={{backgroundColor: color}}>
+                    <TrashIcon color="#FFF"/>
+                </button>
+            }
+            <div className={styles.container}>
+                <button 
+                    className={styles.buttonQt}
+                    style={{
+                            backgroundColor: count == min ? "#F2F4F5" : color,
+                            width: small ? 40 : 50,
+                            height: small ? 40 : 50,
+                        }}
+                    onClick={sub}
+                    disabled={count == min ? true : false}
+                >-</button>
+                <span 
+                    className={styles.contentQt}
+                    style={{
+                        color: color,
+                        fontSize: small ? 16 : 18,
+                    }}
+                >{formatter.formatQuantity(count, 2)}</span>
+                <button 
+                    className={styles.buttonQt}
+                    style={{
+                            backgroundColor: count == max ? "#F2F4F5" : color,
+                            width: small ? 40 : 50,
+                            height: small ? 40 : 50,
+                        }}
+                    onClick={add}
+                    disabled={count == max ? true : false}
+                >+</button>
+            </div>
+        </>
     );
 }
 

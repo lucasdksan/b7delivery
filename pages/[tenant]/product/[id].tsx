@@ -4,7 +4,7 @@ import Button from "../../../components/Button";
 import HeadComponent from "../../../components/HeadComponent";
 import Header from "../../../components/Header";
 import Quantity from "../../../components/Quantity";
-import { useAppContext } from "../../../contexts/AppContext";
+import { useAppContext } from "../../../contexts/app";
 import { libApi } from "../../../libs/useApi";
 import { libFormatter } from "../../../libs/useFormatter";
 import styles from "../../../styles/Product-id.module.css";
@@ -12,12 +12,12 @@ import { Product } from "../../../types/Product";
 import { TenantProps } from "../../../types/Tenant";
 
 const ProductPage = ( data:Props )=>{
-    const { setTenant, tenant } = useAppContext();
+    const { setTanent, tenant } = useAppContext();
     const [ qtProduct, setQtProduct ] = useState(1);
     const formatter = libFormatter();
 
     useEffect(()=>{
-        setTenant(data.tenant)
+        setTanent(data.tenant);
     },[]);
 
     function handleAddToCart(){

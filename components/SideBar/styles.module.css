@@ -1,0 +1,92 @@
+.container {
+    position: fixed;
+    top: var(--default-zero);
+    bottom: var(--default-zero);
+    right: var(--default-zero);
+    width: var(--default-zero);
+    transition: var(--default-animation);
+    background-color: var(--main-white);
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.area {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 calc(var(--default-size) * 5);
+    margin-top: calc(var(--default-size) * 16);
+}
+
+.loginArea {
+    border-bottom: var(--line-size) solid var(--main-black);
+    margin-left: calc(var(--default-size) * 8);
+    padding-bottom: calc(var(--default-size) * 10);
+    min-width: calc(var(--default-size) * 46);
+}
+
+.userInfo {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: #96A3AB;
+}
+
+.userInfo strong {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 5);
+    line-height: calc(var(--default-size) * 6);
+    color: var(--main-black);
+    display: block;
+    margin-bottom: calc(var(--default-size) * 2);
+}
+
+.closeBtn {
+    width: calc(var(--default-size) * 6);
+    height: calc(var(--default-size) * 6);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    font-size: calc(var(--default-size) * 4);
+    background: transparent;
+}
+
+.line {
+    border-bottom: var(--line-size) solid var(--main-sub-gray-3);
+    margin: 0 calc(var(--default-size) * 5);
+    margin-top: calc(var(--line-size) * -1);
+}
+
+.menu {
+    flex: 1;
+    padding: calc(var(--default-size) * 5) calc(var(--default-size) * 13);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menuBottom {
+    background-color: transparent;
+    display: flex;
+}
+
+.logoutBtn {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-options-menu);
+    margin-left: calc(var(--default-size) * 5);
+}
