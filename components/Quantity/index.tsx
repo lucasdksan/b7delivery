@@ -1,6 +1,8 @@
 import { libFormatter } from "../../libs/useFormatter";
-import TrashIcon from "./TrashIcon.svg";
+
 import styles from "./styles.module.css";
+
+import TrashIcon from "./TrashIcon.svg";
 
 type Props = {
     color: string;

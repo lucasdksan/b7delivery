@@ -1,10 +1,15 @@
 import { GetServerSideProps } from "next";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useAppContext } from "../../contexts/app";
-import { libApi } from "../../libs/useApi";
-import { TenantProps } from "../../types/Tenant";
+
 import styles from "../../styles/Forget.module.css";
+
+import { useAppContext } from "../../contexts/app";
+
+import { libApi } from "../../libs/useApi";
+
+import { TenantProps } from "../../types/Tenant";
+
 import HeadComponent from "../../components/HeadComponent";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
@@ -19,7 +24,8 @@ const ForGet = ( data:Props )=>{
         setTanent(data.tenant);
     },[]);
 
-    const handleSubmit = ()=> {
+    const handleSubmit = (e:FormEvent)=> {
+        e.preventDefault();
         router.push(`/${data.tenant.slug}/forget-success`);
     }
 
@@ -39,7 +45,10 @@ const ForGet = ( data:Props )=>{
                     Preencha o campo com seu e-mail e receba as instruções necessárias para redefinir  a sua senha.
                 </span>
             </div>
-            <form className={styles.formArea}>
+            <form 
+                className={styles.formArea}
+                onSubmit={handleSubmit}
+            >
                 <fieldset className={styles.inputArea}>
                     <Input
                         color={data.tenant.mainColor}
@@ -52,7 +61,7 @@ const ForGet = ( data:Props )=>{
                     <Button
                         color={data.tenant.mainColor}
                         label="Enviar"
-                        onClick={handleSubmit}
+                        type="submit"
                         fill
                     />
                 </fieldset>

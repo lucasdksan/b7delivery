@@ -1,5 +1,7 @@
-import { AppContext } from "./index";
 import { useContext } from "react";
+
+import { AppContext } from "./index";
+
 import { TenantProps } from "../../types/Tenant";
 import { Actions } from "./types";
 

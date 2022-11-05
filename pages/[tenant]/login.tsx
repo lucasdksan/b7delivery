@@ -1,18 +1,25 @@
 import { GetServerSideProps } from "next";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useAppContext } from "../../contexts/app";
-import { libApi } from "../../libs/useApi";
-import { TenantProps } from "../../types/Tenant";
+import Link from "next/link";
+
 import styles from "../../styles/Login.module.css";
+
+import { libApi } from "../../libs/useApi";
+
+import { TenantProps } from "../../types/Tenant";
+
 import HeadComponent from "../../components/HeadComponent";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import Link from "next/link";
+
+import { useAuthContext } from "../../contexts/auth";
+import { useAppContext } from "../../contexts/app";
 
 const Login = ( data:Props )=>{
     const { setTanent, tenant } = useAppContext();
+    const { setToken, setUser } = useAuthContext();
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const router = useRouter();
@@ -21,11 +28,18 @@ const Login = ( data:Props )=>{
         setTanent(data.tenant);
     },[]);
 
-    const handleSubmit = ()=> {
-
+    const handleSubmit = (e:FormEvent)=> {
+        e.preventDefault();
+        setToken("12345");
+        setUser({
+            name: "Lucas da Silva",
+            email: "lucas.silva@gmail.com"
+        });
+        router.push(`/${data.tenant.slug}`);
     }
 
     const handleSignUp = ()=>{
+        console.log("OI")
         router.push(`/${data.tenant.slug}/signup`);
     }
 
@@ -44,7 +58,10 @@ const Login = ( data:Props )=>{
                     Use suas credenciais para realizar o login.
                 </span>
             </div>
-            <form className={styles.formArea}>
+            <form 
+                className={styles.formArea}
+                onSubmit={handleSubmit}
+            >
                 <fieldset className={styles.inputArea}>
                     <Input
                         color={data.tenant.mainColor}
@@ -65,8 +82,8 @@ const Login = ( data:Props )=>{
                 <fieldset className={styles.inputArea}>
                     <Button
                         color={data.tenant.mainColor}
+                        type="submit"
                         label="Entrar"
-                        onClick={handleSubmit}
                         fill
                     />
                 </fieldset>

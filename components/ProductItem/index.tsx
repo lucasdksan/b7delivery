@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { useAppContext } from "../../contexts/app";
-import { libFormatter } from "../../libs/useFormatter";
-import { Product } from "../../types/Product";
+
 import styles from "./styles.module.css";
+
+import { useAppContext } from "../../contexts/app";
+
+import { libFormatter } from "../../libs/useFormatter";
+
+import { Product } from "../../types/Product";
 
 interface ProductProps {
     data: Product;

@@ -1,14 +1,19 @@
 import { GetServerSideProps } from "next";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useAppContext } from "../../contexts/app";
-import { libApi } from "../../libs/useApi";
-import { TenantProps } from "../../types/Tenant";
+
 import styles from "../../styles/ForgetSuccess.module.css";
+
 import HeadComponent from "../../components/HeadComponent";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import Icon from "../../components/Icon";
+
+import { useAppContext } from "../../contexts/app";
+
+import { libApi } from "../../libs/useApi";
+
+import { TenantProps } from "../../types/Tenant";
 
 const ForgetSuccess = (data:Props)=>{
     const { setTanent, tenant } = useAppContext();
@@ -20,7 +25,8 @@ const ForgetSuccess = (data:Props)=>{
         setTanent(data?.tenant);
     },[]);
 
-    const handleSubmit = ()=> {
+    const handleSubmit = (e:FormEvent)=> {
+        e.preventDefault();
         router.push(`/${data.tenant.slug}/login`);
     }
 
@@ -47,12 +53,15 @@ const ForgetSuccess = (data:Props)=>{
                     Enviamos as instruções para recuperação de senha para o seu e-mail.
                 </span>
             </div>
-            <form className={styles.formArea}>
+            <form 
+                className={styles.formArea}
+                onSubmit={handleSubmit}
+            >
                 <fieldset className={styles.inputArea}>
                     <Button
                         color={data.tenant.mainColor}
                         label="Fazer login"
-                        onClick={handleSubmit}
+                        type="submit"
                         fill
                     />
                 </fieldset>

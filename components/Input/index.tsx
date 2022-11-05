@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import styles from "./styles.module.css";
+
 import EyeOn from "./eyeIcon.svg";
 import EyeOff from "./closeEyeIcon.svg";
 

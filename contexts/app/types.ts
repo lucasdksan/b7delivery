@@ -1,4 +1,5 @@
 import { Dispatch, ReactNode } from 'react';
+
 import { TenantProps } from './../../types/Tenant';
 
 export type DataType = {

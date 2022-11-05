@@ -79,3 +79,35 @@
   gap: calc(5 * var(--default-size));
   grid-template-columns: repeat(2, 1fr);
 }
+
+.searchText {
+  margin-bottom: calc(var(--default-size) * 2);
+}
+
+.searchText span{
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: var(--size-r);
+  font-size: calc(var(--default-size) * 3);
+  line-height: calc(var(--default-size) * 7);
+  color: var(--main-sub-gray);
+}
+
+.noProducts {
+  width: calc(var(--default-size) * 47);
+  margin: calc(var(--default-size) * 18) auto;
+}
+
+.iconArea {
+  margin-bottom: calc(var(--default-size) * 6);
+}
+
+.noProductsText {
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: var(--size-sb);
+  font-size: calc(var(--default-size) * 5);
+  line-height: calc(var(--default-size) * 6);
+  text-align: center;
+  color: var(--main-color-not-found);
+}

@@ -1,15 +1,20 @@
 import { GetServerSideProps } from "next";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useAppContext } from "../../contexts/app";
-import { libApi } from "../../libs/useApi";
-import { TenantProps } from "../../types/Tenant";
+import Link from "next/link";
+
 import styles from "../../styles/Signup.module.css";
+
+import { useAppContext } from "../../contexts/app";
+
+import { libApi } from "../../libs/useApi";
+
+import { TenantProps } from "../../types/Tenant";
+
 import HeadComponent from "../../components/HeadComponent";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import Link from "next/link";
 
 const SignUp = ( data:Props )=>{
     const { tenant, setTanent } = useAppContext();
@@ -22,7 +27,7 @@ const SignUp = ( data:Props )=>{
         setTanent(data.tenant);
     },[]);
 
-    const handleSubmit = ()=> {
+    const handleSubmit = (e:FormEvent)=> {
 
     }
 
@@ -41,7 +46,10 @@ const SignUp = ( data:Props )=>{
                     Preencha os campos para criar o seu cadastro.
                 </span>
             </div>
-            <form className={styles.formArea}>
+            <form 
+                className={styles.formArea}
+                onSubmit={handleSubmit}
+            >
                 <fieldset className={styles.inputArea}>
                     <Input
                         color={data.tenant.mainColor}
@@ -71,7 +79,7 @@ const SignUp = ( data:Props )=>{
                     <Button
                         color={data.tenant.mainColor}
                         label="Cadastrar"
-                        onClick={handleSubmit}
+                        type="submit"
                         fill
                     />
                 </fieldset>

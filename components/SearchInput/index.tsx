@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { useAppContext } from "../../contexts/app";
-import SearchIcon from "./searchIcon.svg";
+
 import styles from "./styles.module.css";
+
+import { useAppContext } from "../../contexts/app";
+
+import SearchIcon from "./searchIcon.svg";
 
 type InputSearchPros = {
     onButtonClick: (value: string) => void;

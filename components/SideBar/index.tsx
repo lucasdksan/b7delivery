@@ -1,11 +1,15 @@
+import { useRouter } from "next/router";
+
+import styles from "./styles.module.css";
+
 import { useAuthContext } from "../../contexts/auth";
+
 import { TenantProps } from "../../types/Tenant";
 
 import Button from "../Button";
 import SideBarMenuItem from "../SideBarMenuItem";
-import styles from "./styles.module.css";
+
 import LogoutIcon from "./LogoutIcon.svg";
-import { useRouter } from "next/router";
 
 type Props = {
     tenant: TenantProps;

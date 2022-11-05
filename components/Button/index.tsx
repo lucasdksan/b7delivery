@@ -1,15 +1,18 @@
+import { ButtonHTMLAttributes } from "react";
+
 import styles from "./styles.module.css";
 
-type ButtonProps = {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     color: string;
     label: string;
-    onClick: ()=>void;
+    onClick?: ()=>void;
     fill?: boolean;
 }
 
-const Button = ({ color, label, onClick, fill }: ButtonProps)=>{
+const Button = ({ color, label, onClick, fill, ...rest }: ButtonProps)=>{
     return(
-        <button 
+        <button
+            {...rest}
             className={styles.container}
             onClick={onClick}
             style={{

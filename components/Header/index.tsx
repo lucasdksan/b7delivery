@@ -1,6 +1,8 @@
-import styles from "./styles.module.css";
-import BackIcon from "./backArrow.svg";
 import Link from "next/link";
+
+import styles from "./styles.module.css";
+
+import BackIcon from "./backArrow.svg";
 
 type HeaderProps = {
     title?: string;

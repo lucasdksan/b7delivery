@@ -1,13 +1,18 @@
 import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
+
+import styles from "../../../styles/Product-id.module.css";
+
 import Button from "../../../components/Button";
 import HeadComponent from "../../../components/HeadComponent";
 import Header from "../../../components/Header";
 import Quantity from "../../../components/Quantity";
+
 import { useAppContext } from "../../../contexts/app";
+
 import { libApi } from "../../../libs/useApi";
 import { libFormatter } from "../../../libs/useFormatter";
-import styles from "../../../styles/Product-id.module.css";
+
 import { Product } from "../../../types/Product";
 import { TenantProps } from "../../../types/Tenant";
 
