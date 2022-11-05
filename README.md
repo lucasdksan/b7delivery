@@ -2,6 +2,14 @@
 
 # :clipboard: Pontos importantes do projeto :clipboard: :
 
+## Start Project:
+
+```markdown
+npm i
+
+npm run dev
+```
+
 Sistema de Delivery
 
 * Pessoas que vão utilizar esse sistema:
@@ -46,31 +54,69 @@ Sistema de Delivery
 - API RESTful
 - Typescript
 
-* Análise do layout e divisão de componentes que se repete.
+* Análise do layout e divisão de componentes que se repete:
 
 Link do layout: https://www.figma.com/file/6M8Pq62vm6QYPqTsYJBCmf/Ui---B7Delivery?node-id=403%3A14
 
-- Banner
+- Banner.
 
 ![img](./README/Banner.png)
 
-- Button
+Elemento que possui um carrossel contendo banners publicitários do cliente.
+
+- Button.
 
 ![img](./README/Buttons.png)
 
-- HeadComponent
-- Header
+- HeadComponent.
+- Header.
 
 ![img](./README/Header.png)
 
-- Input
+O elemento Header contém os elementos da parte superior do site para cada página.
+
+- Input.
 
 ![img](./README/Inputs.png)
 
-- ProductItem
+Elemento comum em quase todas as páginas e livre para adaptações, respeitando assim o layout pré-estabelecido.
+
+- ProductItem.
 
 ![img](./README/ProductItems.png)
 
-- SearchInput
+O elemento que contém a imagem, preço e categoria dos produtos que o cliente oferece.
+
+- SearchInput.
 
 ![img](./README/SearchInput.png)
+
+O elemento que contém o input principal de pesquisa.
+
+- Icon.
+
+![img](./README/EmailIcon.png)
+
+O elemento Icon contém um icone que pode ser alterado informações importantes.
+
+- Quantity.
+
+![img](./README/QuantityElement.png)
+
+Elemento que desempenha o papel de alterar a quantidade de produto que o usuário deseja.
+
+- SideBar.
+
+![img](./README/SideBar.png)
+
+Simplesmente o menu lateral.
+
+- SideBarMenuItem.
+
+![img](./README/SideBarElement.png)
+
+As opções do menu.
+
+* Páginas:
+
+* Alterações no projeto:
