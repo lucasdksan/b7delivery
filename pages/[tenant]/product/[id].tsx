@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import styles from "../../../styles/Product-id.module.css";
 
@@ -15,35 +16,65 @@ import { libFormatter } from "../../../libs/useFormatter";
 
 import { Product } from "../../../types/Product";
 import { TenantProps } from "../../../types/Tenant";
+import { CartCookie } from "../../../types/CartCookie";
+import { getCookie, hasCookie, setCookie } from "cookies-next";
 
-const ProductPage = ( data:Props )=>{
+const ProductPage = (data: Props) => {
     const { setTanent, tenant } = useAppContext();
-    const [ qtProduct, setQtProduct ] = useState(1);
+    const [qtProduct, setQtProduct] = useState(1);
     const formatter = libFormatter();
+    const router = useRouter();
 
-    useEffect(()=>{
+    useEffect(() => {
         setTanent(data.tenant);
-    },[]);
+    }, []);
 
-    function handleAddToCart(){
+    function handleAddToCart() {
+        let cart: CartCookie[] = [];
+        let cartIndex;
 
+        if (hasCookie("cart")) {
+            const cartCookie = getCookie("cart");
+            const cartJson: CartCookie[] = JSON.parse(cartCookie as string);
+
+            for (let i in cartJson) {
+                if (cartJson[i].qt && cartJson[i].id) {
+                    cart.push(cartJson[i]);
+                }
+            }
+        }
+
+        cartIndex = cart.findIndex(item => item.id === data.product.id);
+
+        if (cartIndex > -1) {
+            cart[cartIndex].qt += qtProduct;
+        } else {
+            cart.push({
+                id: data.product.id,
+                qt: qtProduct
+            });
+        }
+
+        setCookie("cart", JSON.stringify(cart));
+
+        router.push(`/${data.tenant.slug}/cart`);
     }
 
-    function addQtProduct(){
-        if(qtProduct >= data.product.min && qtProduct < data.product.max){
-            setQtProduct(qtProduct+1);
+    function addQtProduct() {
+        if (qtProduct >= data.product.min && qtProduct < data.product.max) {
+            setQtProduct(qtProduct + 1);
         }
     }
 
-    function subQtProduct(){
-        if(qtProduct > data.product.min && qtProduct <= data.product.max){
-            setQtProduct(qtProduct-1);
+    function subQtProduct() {
+        if (qtProduct > data.product.min && qtProduct <= data.product.max) {
+            setQtProduct(qtProduct - 1);
         }
     }
 
-    return(
+    return (
         <div className={styles.container}>
-            <HeadComponent 
+            <HeadComponent
                 title={`${data.product.name} | ${data.tenant.name}`}
             />
             <div className={styles.headerArea}>
@@ -54,27 +85,27 @@ const ProductPage = ( data:Props )=>{
                     invert
                 />
             </div>
-            <div className={styles.headerBg} style={{backgroundColor: data.tenant.mainColor}}>
-                
+            <div className={styles.headerBg} style={{ backgroundColor: data.tenant.mainColor }}>
+
             </div>
             <div className={styles.productImage}>
-                <img 
-                    src={data.product.image} 
-                    alt="Image product selected" 
+                <img
+                    src={data.product.image}
+                    alt="Image product selected"
                 />
             </div>
             <main className={styles.body}>
                 <div className={styles.containerNames}>
                     <span className={styles.category}>{data.product.categoryName}</span>
                     <h1 className={styles.title}>{data.product.name}</h1>
-                    <span className={styles.line} style={{borderBottomColor: data.tenant.mainColor}}></span>
+                    <span className={styles.line} style={{ borderBottomColor: data.tenant.mainColor }}></span>
                     <p className={styles.description}>{data.product.description}</p>
                 </div>
                 <div className={styles.containerDinamic}>
                     <span className={styles.qtText}>Quantidade</span>
                     <div className={styles.area}>
                         <div className={styles.areaLeft}>
-                            <Quantity 
+                            <Quantity
                                 color={data.tenant.mainColor}
                                 count={qtProduct}
                                 add={addQtProduct}
@@ -84,8 +115,8 @@ const ProductPage = ( data:Props )=>{
                             />
                         </div>
                         <div className={styles.areaRight}>
-                            <span className={styles.valueProduct} style={{color: data.tenant.mainColor}}>
-                                { formatter.formatPrice(data.product.price * qtProduct) }
+                            <span className={styles.valueProduct} style={{ color: data.tenant.mainColor }}>
+                                {formatter.formatPrice(data.product.price * qtProduct)}
                             </span>
                         </div>
                     </div>
@@ -115,16 +146,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const api = libApi(tenantSlug as string);
 
     const tenant = await api.getTenant();
-    const product = await api.getProduct(id as string);
+    const product = await api.getProduct(parseInt(id as string));
 
-    if(!tenant){
+    if (!tenant) {
         return {
             redirect: {
                 destination: "/",
                 permanent: false
             }
         }
-    }   
+    }
 
     return {
         props: {

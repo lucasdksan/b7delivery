@@ -18,6 +18,8 @@
   --main-close-btn: #CCC;
   --main-color-not-found: #CDCDCD;
   --main-options-menu: #6A7D8B;
+  --main-color-line: rgba(27, 27, 27, 0.1);
+  --main-color-dashed: #96A3AB;
 
   --main-font: "Inter";
   --size-r: 400;
@@ -72,4 +74,6 @@ h6 {
 
 fieldset {
   border: var(--default-zero);
+  padding: var(--default-zero);
+  margin: var(--default-zero);
 }

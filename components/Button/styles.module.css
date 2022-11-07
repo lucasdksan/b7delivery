@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--main-black);
-    padding: calc(var(--default-size) * 4);
+    border: 2px solid var(--main-black);
+    padding: calc(var(--default-size) * 3);
     color: var(--main-black);
     font-family: var(--main-font);
     font-style: normal;
