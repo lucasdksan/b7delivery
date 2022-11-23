@@ -6,9 +6,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     color: string;
     label: string;
     fill?: boolean;
+    width?: boolean;
 }
 
-const Button = ({ color, label, fill, ...rest }: ButtonProps)=>{
+const Button = ({ color, label, fill, width, ...rest }: ButtonProps)=>{
     return(
         <button
             {...rest}
@@ -17,6 +18,7 @@ const Button = ({ color, label, fill, ...rest }: ButtonProps)=>{
                 color: fill ? "#fff" : color,
                 borderColor: color,
                 backgroundColor: fill ? color : "transparent",
+                width: width ? "auto" : "100%"
             }}
         >
             { label }

@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    align-items: center;
+    border-bottom: var(--line-size) solid var(--main-color-line);
+}
+
+.productImage {
+    width: calc(var(--default-size) * 17);
+}
+
+.productImage img {
+    width: 100%;
+}
+
+.productInfo {
+    flex: 1;
+    margin-left: calc(var(--default-size) * 2);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.productCategory {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 3);
+    color: var(--main-shadow-text);
+}
+
+.productName {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-black);
+    margin-top: calc(var(--default-size) * .75);
+    margin-bottom: calc(var(--default-size) * .35);
+}
+
+.productPrice {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+}

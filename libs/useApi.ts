@@ -1,3 +1,4 @@
+import { CartItem } from '../types/CartItem';
 import { Product } from '../types/Product';
 import { User } from '../types/User';
 import { TenantProps } from './../types/Tenant';
@@ -60,5 +61,31 @@ export const libApi = (tenantSlug: string)=>({
             name: "Lucas da Silva",
             email: "lucas.silva@gmail.com"
         }
+    },
+
+    getCartProducts: async (cartCookie: string)=>{
+        let cart: CartItem[] = [];
+        let product;
+
+        const cartJson = JSON.parse(cartCookie);
+
+        if(!cartCookie) return cart;
+
+        for(let i in cartJson){
+            if(cartJson[i].id && cartJson[i].qt){
+                product = {
+                    ...TEMPORARYoneProduct,
+                    id: cartJson[i].id
+                }
+
+                cart.push({
+                    qt: cartJson[i].qt,
+                    product
+                });
+            }
+        }
+
+        return cart;
+
     }
 })

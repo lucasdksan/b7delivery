@@ -12,26 +12,21 @@ type Props = {
     small?: boolean;
     add: ()=> void;
     sub: ()=> void;
+    remove?: ()=> void;
 }
 
-const Quantity = ({ color, count, min, max, small, add, sub }: Props)=>{
+const Quantity = ({ color, count, min, max, small, add, sub, remove }: Props)=>{
     const formatter = libFormatter();
 
     return(
         <>
-            {
-                small &&
-                <button className={styles.trashIcon} style={{backgroundColor: color}}>
-                    <TrashIcon color="#FFF"/>
-                </button>
-            }
             <div className={styles.container}>
                 <button 
                     className={styles.buttonQt}
                     style={{
                             backgroundColor: count == min ? "#F2F4F5" : color,
-                            width: small ? 40 : 50,
-                            height: small ? 40 : 50,
+                            width: small ? 35 : 50,
+                            height: small ? 35 : 50,
                         }}
                     onClick={sub}
                     disabled={count == min ? true : false}
@@ -40,20 +35,30 @@ const Quantity = ({ color, count, min, max, small, add, sub }: Props)=>{
                     className={styles.contentQt}
                     style={{
                         color: color,
-                        fontSize: small ? 16 : 18,
+                        fontSize: small ? 14 : 18,
                     }}
                 >{formatter.formatQuantity(count, 2)}</span>
                 <button 
                     className={styles.buttonQt}
                     style={{
                             backgroundColor: count == max ? "#F2F4F5" : color,
-                            width: small ? 40 : 50,
-                            height: small ? 40 : 50,
+                            width: small ? 35 : 50,
+                            height: small ? 35 : 50,
                         }}
                     onClick={add}
                     disabled={count == max ? true : false}
                 >+</button>
             </div>
+            {
+                small &&
+                <button 
+                    className={styles.trashIcon} 
+                    style={{backgroundColor: color}}
+                    onClick={remove}
+                >
+                    <TrashIcon color="#FFF" />
+                </button>
+            }
         </>
     );
 }

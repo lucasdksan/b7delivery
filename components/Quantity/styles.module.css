@@ -7,11 +7,11 @@
 }
 
 .trashIcon {
-    width: calc(var(--default-size)*10);
-    height: calc(var(--default-size)*10);
+    width: calc(var(--default-size)*6);
+    height: calc(var(--default-size)*6);
     border-radius: var(--default-size);
-    margin-right: var(--default-size);
-    background: red;
+    margin-top: var(--default-size);
+    float: right;
 }
 
 .buttonQt {

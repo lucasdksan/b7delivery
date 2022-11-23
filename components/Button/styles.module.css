@@ -12,5 +12,5 @@
     line-height: calc(4 * var(--default-size));
     text-align: center;
     border-radius: var(--default-size);
-    width: 100%;
+    /* width: 100%; */
 }
