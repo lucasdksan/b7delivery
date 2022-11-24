@@ -3,7 +3,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { getCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/router";
 
-import styles from "../../styles/Cart.module.css";
+import styles from "../../styles/Checkout.module.css";
 
 import HeadComponent from "../../components/HeadComponent";
 import Header from "../../components/Header";
@@ -21,8 +21,10 @@ import { useAuthContext } from "../../contexts/auth";
 import { useAppContext } from "../../contexts/app";
 import CartProductItem from "../../components/CartProductItem";
 import { CartCookie } from "../../types/CartCookie";
+import AreaCheckout from "../../components/AreaCheckout";
+import ButtonWithIcon from "../../components/ButtonWithIcon";
 
-const Cart = ( data:Props )=>{
+const Checkout = ( data:Props )=>{
     const { setToken, setUser } = useAuthContext();
     const { setTanent, tenant } = useAppContext();
 
@@ -78,8 +80,6 @@ const Cart = ( data:Props )=>{
 
         newCart = tmpCart.filter( item => item.product.id !== id);
 
-        console.log("newCart: ", newCart);
-
         setCart(newCart);
 
         for(let i in newCart){
@@ -90,6 +90,10 @@ const Cart = ( data:Props )=>{
         }
 
         setCookie("cart", JSON.stringify(cartCookie));
+    }
+
+    const handleChangeAddress = ()=>{
+        console.log("VC TENTOU")
     }
 
     useEffect(()=>{
@@ -111,13 +115,74 @@ const Cart = ( data:Props )=>{
     return(
         <div className={styles.container}>
             <HeadComponent 
-                title={`Minicart | ${data.tenant.name}`}
+                title={`Checkout | ${data.tenant.name}`}
             />
             <Header 
-                backHref={`/${data.tenant.slug}`}
+                backHref={`/${data.tenant.slug}/cart`}
                 color={data.tenant.mainColor}
-                title="Minicart"
+                title="Checkout"
             />
+
+            <section className={styles.infoGroup}>
+                <AreaCheckout
+                    label="Endereço"
+                    children={
+                        <ButtonWithIcon
+                            color={data.tenant.mainColor}
+                            onClick={handleChangeAddress}
+                            value="Oiiiiiiiiiiiiiiii"
+                            leftIcon="ping"
+                            rightIcon="arrow"
+                        />
+                    }
+                />
+
+                <AreaCheckout
+                    label="Tipo de Pagamento"
+                    children={
+                        <div className={styles.containerButtons}>
+                            <ButtonWithIcon
+                                color={data.tenant.mainColor}
+                                onClick={()=> console.log("oi")}
+                                value="Dinheiro"
+                                leftIcon="money"
+                            />
+
+                            <ButtonWithIcon
+                                color={data.tenant.mainColor}
+                                onClick={()=> console.log("oi")}
+                                value="Cartão"
+                                leftIcon="card"
+                            />
+                        </div>
+                    }
+                />
+
+                <AreaCheckout
+                    label="Troco"
+                    children={
+                        <ButtonWithIcon
+                            color={data.tenant.mainColor}
+                            onClick={()=> console.log("oi")}
+                            value="R$ 50,00"
+                        />
+                    }
+                />
+
+                <AreaCheckout
+                    label="Cupom de desconto"
+                    children={
+                        <ButtonWithIcon
+                            color={data.tenant.mainColor}
+                            onClick={()=> console.log("oi")}
+                            value="LucasDev10"
+                            leftIcon="coupun"
+                            rightIcon="check"
+                        />
+                    }
+                />
+            </section>
+
             <main className={styles.body}>
                 <div className={styles.productsQuantity}>
                     <span className={styles.pdQtItens}>{cart.length} {cart.length === 1 ? "Item" : "Itens"}</span>
@@ -205,7 +270,7 @@ const Cart = ( data:Props )=>{
     );
 }
 
-export default Cart;
+export default Checkout;
 
 type Props = {
     tenant: TenantProps;

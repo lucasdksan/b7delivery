@@ -1,0 +1,17 @@
+.infoArea {
+    padding-top: calc(var(--default-size) * 5);
+}
+
+.infoTitle {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    margin-bottom: calc(var(--default-size) * 1.6);
+    color: var(--main-black);
+}
+
+.infoBody {
+    display: flex;
+}

@@ -1,0 +1,151 @@
+.container {
+    background-color: var(--main-white);
+    padding: calc(var(--default-size) * 10) calc(var(--default-size) * 5);
+}
+
+.infoGroup {
+    border-top: var(--line-size) solid var(--main-color-line);
+    margin-bottom: calc(var(--default-size) * 8);
+}
+
+.containerButtons {
+    display: flex;
+    width: 100%;
+    gap: calc(var(--default-size) * 5);
+}
+
+.body {
+
+}
+
+.productsQuantity {
+    border-top: var(--line-size) solid var(--main-color-line);
+    border-bottom: var(--line-size) solid var(--main-color-line);
+    margin: calc(var(--default-size) * 5) var(--default-zero) calc(var(--default-size) * 3) var(--default-zero);
+    padding: calc(var(--default-size) * 4) var(--default-zero);
+}
+
+.pdQtItens {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-black);
+}
+
+.productsList {
+
+}
+
+.shippingArea {
+    margin-top: calc(var(--default-size) * 6);
+}
+
+.shippingTitle {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-options-menu);
+}
+
+.shippingForm {
+    margin: calc(var(--default-size) * 3) var(--default-zero);
+}
+
+.shippingForm fieldset {
+    display: flex;
+    gap: calc(var(--default-size) * 3);
+}
+
+.shippingInfo {
+    background-color: var(--main-gray);
+    border-radius: calc(var(--default-size) * 2);
+    padding: calc(var(--default-size) * 5) calc(var(--default-size) * 6);
+    display: block;
+}
+
+.shippingAddress {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 2);
+    line-height: calc(var(--default-size) * 3);
+    color: var(--main-options-menu);
+}
+
+.shippingTime {
+    display: flex;
+    justify-content: space-between;
+    margin-top: calc(var(--default-size) * 3);
+}
+
+.shippingTimeText {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-black);
+}
+
+.shippingTimePrice {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+}
+
+.resumeArea {
+    background-color: var(--main-gray);
+    border-radius: calc(var(--default-size) * 2);
+    margin-top: calc(var(--default-size) * 3);
+    padding: calc(var(--default-size) * 10) calc(var(--default-size) * 6);
+}
+
+.resumeItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: calc(var(--default-size) * 5);
+}
+
+.resumeLeft {
+    font-family: var(--main-font);
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    font-style: normal;
+    color: #000000;
+}
+
+.resumeRight {
+    font-family: var(--main-font);
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    font-style: normal;
+    color: #000000;
+}
+
+.resumeRightT {
+    font-family: var(--main-font);
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 5);
+    line-height: calc(var(--default-size) * 6);
+    font-style: normal;
+    color: #000000;
+}
+
+.resumeLine {
+    display: flex;
+    border-top: 1px dashed var(--main-color-dashed);
+    margin-bottom: calc(var(--default-size) * 6);
+}
+
+.resumeButton {
+    margin-top: calc(var(--default-size) * 8);
+}
