@@ -8,11 +8,12 @@ type CartProductItemProps = {
     color: string;
     quantity: number;
     product: Product;
+    noEdit?: boolean; 
     onChange: (newCount: number, id: number)=>void;
     removeFunction: (id: number)=> void;
 }
 
-const CartProductItem = ({ color, onChange, product, quantity, removeFunction }: CartProductItemProps)=>{
+const CartProductItem = ({ color, product, quantity, noEdit, removeFunction, onChange }: CartProductItemProps)=>{
     const formatter = libFormatter();
     const [qtProduct, setQtProduct] = useState(quantity);
 
@@ -52,16 +53,35 @@ const CartProductItem = ({ color, onChange, product, quantity, removeFunction }:
                 >{ formatter.formatPrice(product.price)}</span>
             </div>
             <div className={styles.qtControl}>
-                <Quantity
-                    add={addQtProduct}
-                    color={color}
-                    count={qtProduct}
-                    max={product.max}
-                    min={product.min}
-                    sub={subQtProduct}
-                    small
-                    remove={rmvFunction}
-                />
+                {
+                    noEdit && 
+                    <div className={styles.qtArea}>
+                        <span 
+                            className={styles.qtTitle}
+                            style={{color: color}}
+                        >
+                            Qnt.
+                        </span>
+                        <span 
+                            className={styles.qtCount}
+                            style={{color: color}}
+                        >
+                            {quantity}
+                        </span>
+                    </div>
+                }
+                {
+                    !noEdit && <Quantity
+                                    add={addQtProduct}
+                                    color={color}
+                                    count={qtProduct}
+                                    max={product.max}
+                                    min={product.min}
+                                    sub={subQtProduct}
+                                    small
+                                    remove={rmvFunction}
+                                />
+                }
             </div>
         </div>
     );

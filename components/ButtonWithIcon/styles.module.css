@@ -3,6 +3,7 @@
     align-items: center;
     padding: var(--default-size);
     border-radius: calc(var(--default-size) * .8);
+    overflow: hidden;
     flex: 1;
 }
 
