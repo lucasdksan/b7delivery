@@ -1,3 +1,4 @@
+import { Address } from '../types/Address';
 import { CartItem } from '../types/CartItem';
 import { Product } from '../types/Product';
 import { User } from '../types/User';
@@ -67,9 +68,9 @@ export const libApi = (tenantSlug: string)=>({
         let cart: CartItem[] = [];
         let product;
 
-        const cartJson = JSON.parse(cartCookie);
-
         if(!cartCookie) return cart;
+
+        const cartJson = JSON?.parse(cartCookie);
 
         for(let i in cartJson){
             if(cartJson[i].id && cartJson[i].qt){
@@ -87,5 +88,23 @@ export const libApi = (tenantSlug: string)=>({
 
         return cart;
 
+    },
+
+    getUserAddresses: async (email: string)=>{
+        const addresses: Address[] = [];
+
+        for(let i = 0; i < 4; i++){
+            addresses.push({
+                cep: "123456879",
+                city: "Parnamirim",
+                id:  i + 1,
+                neighborhood: "Parnamirim Favela",
+                number: `${i+1}00`,
+                state: "RN", 
+                street: "Rua Capitão Martinho Machado"
+            });
+        }
+
+        return addresses;
     }
 })

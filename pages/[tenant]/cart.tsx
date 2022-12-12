@@ -221,6 +221,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const token = getCookie("token", context);
     const cartCookie = getCookie("cart", context);
 
+    console.log("Teste 1: ", cartCookie);
+
     const user = await api.authorizeToken(token as string);
     const tenant = await api.getTenant();
     const cart = await api.getCartProducts(cartCookie as string);

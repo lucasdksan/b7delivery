@@ -46,16 +46,16 @@ const Checkout = ( data:Props )=>{
     const handleChangeAddress = ()=>{
         router.push(`/${data.tenant.slug}/myaddress`);
 
-        setShippingAddress({
-            id: 1,
-            cep: "59145720",
-            city: "Parnamirim",
-            neighborhood: "Nossa casa",
-            state: "RN",
-            number: "1598",
-            street: "Rua Capitão Martinho Machado",
-            complement: "Casa com portão marrom"
-        });
+        // setShippingAddress({
+        //     id: 1,
+        //     cep: "59145720",
+        //     city: "Parnamirim",
+        //     neighborhood: "Nossa casa",
+        //     state: "RN",
+        //     number: "1598",
+        //     street: "Rua Capitão Martinho Machado",
+        //     complement: "Casa com portão marrom"
+        // });
 
         setShippingPrice(9.5);
     }
@@ -299,6 +299,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     
     const token = getCookie("token", context);
     const cartCookie = getCookie("cart", context);
+
+    console.log("Teste 2:", cartCookie);
 
     const user = await api.authorizeToken(token as string);
     const tenant = await api.getTenant();

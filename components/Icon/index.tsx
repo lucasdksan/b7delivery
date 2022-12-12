@@ -5,6 +5,8 @@ import Check from "./Check.svg";
 import Coupun from "./Coupun.svg";
 import Money from "./Money.svg";
 import Ping from "./Ping.svg";
+import Dots from "./Dots.svg";
+import Btn from "./Btn.svg";
 
 type Props = {
     icon: string;
@@ -23,6 +25,8 @@ const Icon = ({ color, height, icon, width }:Props)=>{
             {icon === "coupun" && <Coupun color={color}/>}
             {icon === "money" && <Money color={color}/>}
             {icon === "ping" && <Ping color={color}/>}
+            {icon === "dots" && <Dots color={color}/>}
+            {icon === "btn" && <Btn color={color}/>}
         </div>
     );
 }

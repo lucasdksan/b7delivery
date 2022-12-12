@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    align-items: center;
+    border-bottom: var(--line-size) var(--main-color-line);
+}
+
+.addressArea {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--default-size) * 6) var(--default-zero);
+}
+
+.addressIcon {
+    margin-left: calc(var(--default-size) * 4);
+}
+
+.addressText {
+    margin-left: calc(var(--default-size) * 2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    max-width: 80%;
+}
+
+.text {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-black);
+}
+
+.btnArea {
+    
+}
+
+.menuIcon {
+
+}

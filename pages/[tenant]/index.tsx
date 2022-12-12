@@ -171,12 +171,22 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     }
 
-    return {
-        props: {
-            tenant,
-            products,
-            user,
-            token: token as string
+    if(token){
+        return {
+            props: {
+                tenant,
+                products,
+                user,
+                token: token as string
+            }
+        }
+    } else {
+        return {
+            props: {
+                tenant,
+                products,
+                user
+            }
         }
     }
 }
