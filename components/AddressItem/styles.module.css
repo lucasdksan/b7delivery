@@ -11,10 +11,6 @@
     padding: calc(var(--default-size) * 6) var(--default-zero);
 }
 
-.addressIcon {
-    margin-left: calc(var(--default-size) * 4);
-}
-
 .addressText {
     margin-left: calc(var(--default-size) * 2);
     white-space: nowrap;
@@ -34,9 +30,48 @@
 }
 
 .btnArea {
-    
+    flex: 1;
 }
 
 .menuIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.popUp {
+    position: absolute;
+    width: calc(var(--default-size) * 29);
+    height: calc(var(--default-size) * 22);
+    background: var(--main-white);
+    border: calc(var(--default-size) * .4) solid var(--main-gray);
+    box-shadow: var(--default-zero) calc(var(--default-size) * 3.2) calc(var(--default-size) * 8) var(--main-shadow);
+    border-radius: calc(var(--default-size) * .8);
+    right: calc(var(--default-size) * 5);
+    padding: calc(var(--default-size) * 4);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.popUpItem:first-child {
+    margin-bottom: calc(var(--default-size) * 4);
+}
+
+.popUpItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.popUpText {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-black);
 }

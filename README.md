@@ -119,4 +119,40 @@ As opções do menu.
 
 * Páginas:
 
+- Home:
+
+![img](./README/Home.png)
+
+- Login:
+
+![img](./README/Login.png)
+
+- Meus Endereços:
+
+![img](./README/My.png)
+
+- SignUp:
+
+![img](./README/SignIn.png)
+
+- Esqueceu Senha:
+
+![img](./README/forget.png)
+
+- Alteração da senha com sucesso:
+
+![img](./README/DeuCerto.png)
+
+- Checkout:
+
+![img](./README/.png)
+
+- Minicart/Cart:
+
+![img](./README/Minicart.png)
+
+- PDP/(Página do Produto):
+
+![img](./README/PDP.png)
+
 * Alterações no projeto:

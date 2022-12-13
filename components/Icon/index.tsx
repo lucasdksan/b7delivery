@@ -7,6 +7,8 @@ import Money from "./Money.svg";
 import Ping from "./Ping.svg";
 import Dots from "./Dots.svg";
 import Btn from "./Btn.svg";
+import Delete from "./Delete.svg";
+import Edit from "./Edit.svg";
 
 type Props = {
     icon: string;
@@ -27,6 +29,8 @@ const Icon = ({ color, height, icon, width }:Props)=>{
             {icon === "ping" && <Ping color={color}/>}
             {icon === "dots" && <Dots color={color}/>}
             {icon === "btn" && <Btn color={color}/>}
+            {icon === "edit" && <Edit color={color}/>}
+            {icon === "delete" && <Delete color={color}/>}
         </div>
     );
 }

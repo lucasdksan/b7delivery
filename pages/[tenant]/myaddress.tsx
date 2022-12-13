@@ -18,13 +18,23 @@ import { useAuthContext } from "../../contexts/auth";
 import { useAppContext } from "../../contexts/app";
 import { Address } from "../../types/Address";
 import AddressItem from "../../components/AddressItem";
+import { useEffect, useState } from "react";
 
 const Myaddress = ( data:Props )=>{
+    const [menuOpened, setMenuOpened] = useState(0);
     const { setToken, setUser } = useAuthContext();
     const { setTanent, tenant } = useAppContext();
 
     const formatter = libFormatter();
     const router = useRouter();
+
+    const handleMenuEvent = (event: MouseEvent)=>{
+        const tagName = (event.target as Element).tagName;
+
+        if(!["path", "svg"].includes(tagName)){
+            setMenuOpened(0);
+        }
+    }
 
     const handleAddressEdit = (id: number)=>{
 
@@ -41,6 +51,12 @@ const Myaddress = ( data:Props )=>{
     const handleNewAddress = ()=>{
         router.push(`/${data.tenant.slug}/newaddress`);
     }
+
+    useEffect(()=>{
+        window.removeEventListener("click", handleMenuEvent);
+        window.addEventListener("click", handleMenuEvent);
+        return ()=> window.removeEventListener("click", handleMenuEvent);
+    },[menuOpened]);
 
     return(
         <div className={styles.container}>
@@ -65,6 +81,8 @@ const Myaddress = ( data:Props )=>{
                                 onDelete={handleAddressDelete}
                                 onEdit={handleAddressEdit}
                                 onSelect={handleAddressSelect}
+                                menuOpened={menuOpened}
+                                setMenuOpened={setMenuOpened}
                             />
                         );
                     })}
