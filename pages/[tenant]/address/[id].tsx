@@ -2,25 +2,25 @@ import { GetServerSideProps } from "next";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 
-import styles from "../../styles/Myaddress.module.css";
+import styles from "../../../styles/Newaddress.module.css";
 
-import HeadComponent from "../../components/HeadComponent";
-import Header from "../../components/Header";
-import Button from "../../components/Button";
+import HeadComponent from "../../../components/HeadComponent";
+import Header from "../../../components/Header";
+import Button from "../../../components/Button";
 
-import { libApi } from "../../libs/useApi";
-import { libFormatter } from "../../libs/useFormatter";
+import { libApi } from "../../../libs/useApi";
+import { libFormatter } from "../../../libs/useFormatter";
 
-import { TenantProps } from "../../types/Tenant";
-import { User } from "../../types/User";
+import { TenantProps } from "../../../types/Tenant";
+import { User } from "../../../types/User";
 
-import { useAuthContext } from "../../contexts/auth";
-import { useAppContext } from "../../contexts/app";
-import { Address } from "../../types/Address";
-import AddressItem from "../../components/AddressItem";
+import { useAuthContext } from "../../../contexts/auth";
+import { useAppContext } from "../../../contexts/app";
+import { Address } from "../../../types/Address";
+import AddressItem from "../../../components/AddressItem";
 import { useEffect, useState } from "react";
 
-const Myaddress = ( data:Props )=>{
+const Newaddress = ( data:Props )=>{
     const [menuOpened, setMenuOpened] = useState(0);
     const { setToken, setUser } = useAuthContext();
     const { setTanent, 
@@ -71,13 +71,13 @@ const Myaddress = ( data:Props )=>{
     return(
         <div className={styles.container}>
             <HeadComponent 
-                title={`Meus Endereços | ${data.tenant.name}`}
+                title={`Novo Endereço | ${data.tenant.name}`}
             />
     
             <Header 
                 backHref={`/${data.tenant.slug}/checkout`}
                 color={data.tenant.mainColor}
-                title="Meus Endereços"
+                title="Novo Endereço"
             />
 
             <main className={styles.mainBody}>
@@ -111,7 +111,7 @@ const Myaddress = ( data:Props )=>{
     );
 }
 
-export default Myaddress;
+export default Newaddress;
 
 type Props = {
     tenant: TenantProps;

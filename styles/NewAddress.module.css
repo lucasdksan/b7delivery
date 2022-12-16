@@ -1,0 +1,40 @@
+.container {
+    background-color: var(--main-white);
+    padding: calc(var(--default-size) * 10) calc(var(--default-size) * 4.8);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.inputs {
+    border-top: var(--line-size) solid var(--main-color-line);
+}
+
+.row {
+    display: flex;
+    margin-top: calc(var(--default-size) * 5);
+    gap: calc(var(--default-size) * 5);
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.column input {
+    width: 1px;
+}
+
+.label {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    color: var(--main-black);
+}
+
+.btnArea {
+    margin-top: calc(var(--default-size) * 5);
+}

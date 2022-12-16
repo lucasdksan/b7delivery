@@ -106,5 +106,9 @@ export const libApi = (tenantSlug: string)=>({
         }
 
         return addresses;
+    },
+
+    getShippingPrice: async (address: Address)=>{
+        return 9.20;
     }
 })

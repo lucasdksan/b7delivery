@@ -27,12 +27,10 @@ import { Address } from "../../types/Address";
 
 const Checkout = ( data:Props )=>{
     const { setToken, setUser } = useAuthContext();
-    const { setTanent, tenant } = useAppContext();
+    const { setTanent, tenant, shippingAddress, shippingPrice } = useAppContext();
 
-    const [ shippingPrice, setShippingPrice ] = useState(0);
     const [ shippingSubTotal, setShippingSubTotal ] = useState(0);
     const [ shippingTotal, setShippingTotal ] = useState(0);
-    const [ shippingAddress, setShippingAddress ] = useState<Address>();
     const [ cart, setCart ] = useState<CartItem[]>(data.cart);
     const [ paymentType, setPaymentType ] = useState<"money"|"card">("money");
     const [ paymentChange, setPaymentChange ] = useState(0);
@@ -45,19 +43,6 @@ const Checkout = ( data:Props )=>{
 
     const handleChangeAddress = ()=>{
         router.push(`/${data.tenant.slug}/myaddress`);
-
-        // setShippingAddress({
-        //     id: 1,
-        //     cep: "59145720",
-        //     city: "Parnamirim",
-        //     neighborhood: "Nossa casa",
-        //     state: "RN",
-        //     number: "1598",
-        //     street: "Rua Capitão Martinho Machado",
-        //     complement: "Casa com portão marrom"
-        // });
-
-        setShippingPrice(9.5);
     }
 
     const handleFinish = ()=>{
