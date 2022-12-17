@@ -24,6 +24,7 @@ import { CartCookie } from "../../types/CartCookie";
 import AreaCheckout from "../../components/AreaCheckout";
 import ButtonWithIcon from "../../components/ButtonWithIcon";
 import { Address } from "../../types/Address";
+import { Order } from "../../types/Order";
 
 const Checkout = ( data:Props )=>{
     const { setToken, setUser } = useAuthContext();
@@ -40,13 +41,27 @@ const Checkout = ( data:Props )=>{
 
     const formatter = libFormatter();
     const router = useRouter();
+    const api = libApi(data.tenant.slug);
 
     const handleChangeAddress = ()=>{
         router.push(`/${data.tenant.slug}/myaddress`);
     }
 
-    const handleFinish = ()=>{
-        router.push(`/${data.tenant.slug}/checkout`);
+    const handleFinish = async ()=>{
+        if(shippingAddress){
+            const order = await api.setOrder(
+                shippingAddress,
+                paymentType,
+                paymentChange,
+                coupon,
+                data.cart);
+
+            if(order){
+                router.push(`/${data.tenant.slug}/order/${order.id}`);
+            } else {
+                alert("Ocorreu um erro! Tente mais tarde!");
+            }
+        }
     }
 
     const handleCartChange = (newCount: number, id: number)=>{

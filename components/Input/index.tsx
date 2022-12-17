@@ -11,9 +11,10 @@ type InputProps = {
     value: string;
     onChange: (newValue: string) => void;
     password?: boolean;  
+    warning?: boolean;
 }
 
-const Input = ({ color, onChange, placeholder, value, password }:InputProps)=>{
+const Input = ({ color, onChange, placeholder, value, password, warning }:InputProps)=>{
     const [ showPassword, setShowPassword ] = useState(false);
     const [ focused, setFocused ] = useState(false);
 
@@ -22,7 +23,7 @@ const Input = ({ color, onChange, placeholder, value, password }:InputProps)=>{
             className={styles.container}
             style={
                 {
-                    borderColor: focused ? color : "#F9F9FB",
+                    borderColor: !warning ? (focused ? color : "#F9F9FB") : "#ff0000",
                     backgroundColor: focused ? "#FFF": "#F9F9FB"
                 }
             }

@@ -9,12 +9,10 @@ import Header from "../../components/Header";
 import Button from "../../components/Button";
 
 import { libApi } from "../../libs/useApi";
-import { libFormatter } from "../../libs/useFormatter";
 
 import { TenantProps } from "../../types/Tenant";
 import { User } from "../../types/User";
 
-import { useAuthContext } from "../../contexts/auth";
 import { useAppContext } from "../../contexts/app";
 import { Address } from "../../types/Address";
 import AddressItem from "../../components/AddressItem";
@@ -22,13 +20,8 @@ import { useEffect, useState } from "react";
 
 const Myaddress = ( data:Props )=>{
     const [menuOpened, setMenuOpened] = useState(0);
-    const { setToken, setUser } = useAuthContext();
-    const { setTanent, 
-            tenant, 
-            setShippingAddress, 
-            setShippingPrice } = useAppContext();
+    const { setShippingAddress, setShippingPrice } = useAppContext();
 
-    const formatter = libFormatter();
     const router = useRouter();
     const api = libApi(data.tenant.slug);
 
@@ -50,8 +43,9 @@ const Myaddress = ( data:Props )=>{
         }
     }
 
-    const handleAddressDelete = (id: number)=>{
-
+    const handleAddressDelete = async (id: number)=>{
+        await api.deleteUserAddress(id);
+        router.reload();
     }
 
     const handleAddressEdit = (id: number)=>{

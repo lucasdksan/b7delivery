@@ -18,13 +18,7 @@ import { useState } from "react";
 import Input from "../../../components/Input";
 
 const Newaddress = ( data:Props )=>{
-    const [ addressCep, setAddressCep ] = useState("");
-    const [ addressStreet, setAddressStreet ] = useState("");
-    const [ addressNumber, setAddressNumber ] = useState("");
-    const [ addressNeighborhood, setAddressNeighborhood ] = useState("");
-    const [ addressCity, setAddressCity ] = useState("");
-    const [ addressState, setAddressState ] = useState("");
-    const [ addressComplement, setAddressComplement ] = useState("");
+    const [ address, setAddress ] = useState<Address>(data.address);
     const [ errorFields, setErrorFields ] = useState<string[]>([]);
 
     const router = useRouter();
@@ -34,27 +28,27 @@ const Newaddress = ( data:Props )=>{
         let newErrorFields = [];
         let approved = true;
 
-        if(addressCep.replaceAll(/[^0-9]/g, '').length !== 8){
+        if(address.cep.replaceAll(/[^0-9]/g, '').length !== 8){
             newErrorFields.push("cep");
             approved=false;
         }
 
-        if(addressStreet.length <= 2){
+        if(address.street.length <= 2){
             newErrorFields.push("street");
             approved=false;
         }
 
-        if(addressNeighborhood.length <= 2){
+        if(address.neighborhood.length <= 2){
             newErrorFields.push("neighborhood");
             approved=false;
         }
 
-        if(addressCity.length <= 2){
+        if(address.city.length <= 2){
             newErrorFields.push("city");
             approved=false;
         }
 
-        if(addressState.length !== 2){
+        if(address.state.length !== 2){
             newErrorFields.push("state");
             approved=false;
         }
@@ -63,26 +57,18 @@ const Newaddress = ( data:Props )=>{
         return approved;
     }
 
+    const changeAddressField = (
+            element: keyof Address, 
+            value: typeof address[keyof Address]
+        )=>{
+            setAddress({ ...address, [element]:value });
+    }
+
     const handleNewAddress = async ()=>{
-        if(verifyAddress()){    
-            let address: Address = {
-                cep: addressCep,
-                city: addressCity,
-                id: 0,
-                neighborhood: addressNeighborhood,
-                number: addressNumber,
-                state: addressState,
-                street: addressStreet,
-                complement: addressComplement
-            }
+        if(verifyAddress()){ 
+            await api.editUserAddress(address);
 
-            let newAddress = await api.addUserAddress(address);
-
-            if(newAddress.id > 0){
-                router.push(`/${data.tenant.slug}/myaddress`);
-            } else {
-                alert("Ocorreu um erro! Tente mais tarde.");
-            }
+            router.push(`/${data.tenant.slug}/myaddress`);
         }
     }
 
@@ -106,8 +92,8 @@ const Newaddress = ( data:Props )=>{
                             <Input 
                                 color={data.tenant.mainColor}
                                 placeholder="Digite um CEP"
-                                value={addressCep}
-                                onChange={value => setAddressCep(value)}
+                                value={address.cep}
+                                onChange={value => changeAddressField("cep",value)}
                                 warning={errorFields.includes("cep")}
                             />
                         </div>
@@ -118,8 +104,8 @@ const Newaddress = ( data:Props )=>{
                             <Input 
                                 color={data.tenant.mainColor}
                                 placeholder="Digite uma Rua"
-                                value={addressStreet}
-                                onChange={value => setAddressStreet(value)}
+                                value={address.street}
+                                onChange={value => changeAddressField("street",value)}
                                 warning={errorFields.includes("street")}
                             />
                         </div>
@@ -128,8 +114,8 @@ const Newaddress = ( data:Props )=>{
                             <Input 
                                 color={data.tenant.mainColor}
                                 placeholder="Digite um número"
-                                value={addressNumber}
-                                onChange={value => setAddressNumber(value)}
+                                value={address.number}
+                                onChange={value => changeAddressField("number",value)}
                                 warning={errorFields.includes("number")}
                             />
                         </div>
@@ -140,8 +126,8 @@ const Newaddress = ( data:Props )=>{
                             <Input 
                                 color={data.tenant.mainColor}
                                 placeholder="Digite um Bairro"
-                                value={addressNeighborhood}
-                                onChange={value => setAddressNeighborhood(value)}
+                                value={address.neighborhood}
+                                onChange={value => changeAddressField("neighborhood",value)}
                                 warning={errorFields.includes("neighborhood")}
                             />
                         </div>
@@ -152,8 +138,8 @@ const Newaddress = ( data:Props )=>{
                             <Input 
                                 color={data.tenant.mainColor}
                                 placeholder="Digite uma cidade"
-                                value={addressCity}
-                                onChange={value => setAddressCity(value)}
+                                value={address.city}
+                                onChange={value => changeAddressField("city",value)}
                                 warning={errorFields.includes("city")}
                             />
                         </div>
@@ -164,8 +150,8 @@ const Newaddress = ( data:Props )=>{
                             <Input 
                                 color={data.tenant.mainColor}
                                 placeholder="Digite aqui o estado"
-                                value={addressState}
-                                onChange={value => setAddressState(value)}
+                                value={address.state}
+                                onChange={value => changeAddressField("state",value)}
                                 warning={errorFields.includes("state")}
                             />
                         </div>
@@ -176,8 +162,8 @@ const Newaddress = ( data:Props )=>{
                             <Input 
                                 color={data.tenant.mainColor}
                                 placeholder="Digite aqui o complemento"
-                                value={addressComplement}
-                                onChange={value => setAddressComplement(value)}
+                                value={address.complement as string ?? ""}
+                                onChange={value => changeAddressField("complement",value)}
                             />
                         </div>
                     </div>
@@ -185,7 +171,7 @@ const Newaddress = ( data:Props )=>{
                 <div className={styles.btnArea}>
                     <Button
                         color={data.tenant.mainColor}
-                        label="Novo Endereço"
+                        label="Atualizar"
                         onClick={handleNewAddress}
                         fill
                     />
@@ -202,11 +188,11 @@ type Props = {
     tenant: TenantProps;
     user: User | null;
     token: string;
-    addresses?: Address[]
+    address: Address;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const { tenant: tenantSlug } = context.query;
+    const { tenant: tenantSlug, addressid } = context.query;
     const api = libApi(tenantSlug as string);
     const token = getCookie("token", context);
     const user = await api.authorizeToken(token as string);
@@ -217,7 +203,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         return { redirect: { destination: "/login", permanent: false } };
     }
     
-    const addresses = await api.getUserAddresses(user.email as string);
+    const address = await api.getUserAddress(Number(addressid));
 
     if(!tenant){
         return {
@@ -233,7 +219,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             tenant,
             user,
             token: token as string,
-            addresses
+            address
         }
     }
 }

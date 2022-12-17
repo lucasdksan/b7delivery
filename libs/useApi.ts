@@ -1,5 +1,6 @@
 import { Address } from '../types/Address';
 import { CartItem } from '../types/CartItem';
+import { Order } from '../types/Order';
 import { Product } from '../types/Product';
 import { User } from '../types/User';
 import { TenantProps } from './../types/Tenant';
@@ -13,6 +14,33 @@ const TEMPORARYoneProduct:Product = {
     description: "2 Blends de carne de 150g, Queijo Cheddar, Bacon Caramelizado, Salada, Molho da casa, Pão brioche artesanal,",
     max: 10,
     min: 1,
+}
+
+const TEMPORARYorder:Order = {
+    id: 123,
+    status: "preparing",
+    orderDate: "2022-12-04",
+    userid: "134",
+    shippingAddress: {
+        id: 2,
+        cep: "123456879",
+        city: "Parnamirim",
+        neighborhood: "Parnamirim Favela",
+        number: `${1}00`,
+        state: "RN", 
+        street: "Rua Capitão Martinho Machado"
+    },
+    shippingPrice: 9.55,
+    paymentType: "card",
+    coupon: "DJRogerim",
+    couponDiscount:14.50,
+    products: [
+        { product: { ...TEMPORARYoneProduct, id:1 }, qt: 1 },
+        { product: { ...TEMPORARYoneProduct, id:1 }, qt: 5 },
+        { product: { ...TEMPORARYoneProduct, id:1 }, qt: 1 }
+    ],
+    subtotal: 205,
+    total: 190.5
 }
 
 export const libApi = (tenantSlug: string)=>({
@@ -110,5 +138,44 @@ export const libApi = (tenantSlug: string)=>({
 
     getShippingPrice: async (address: Address)=>{
         return 9.20;
+    },
+
+    addUserAddress: async (address: Address)=>{
+        return {
+            ...address,
+            id: 10
+        }
+    },
+
+    getUserAddress: async (id: number)=>{
+        let address:Address =  {
+            id,
+            cep: "123456879",
+            city: "Parnamirim",
+            neighborhood: "Parnamirim Favela",
+            number: `${id+1}00`,
+            state: "RN", 
+            street: "Rua Capitão Martinho Machado"
+        }
+
+        return address;
+    },
+
+    editUserAddress: async (address: Address)=>{
+        return true;
+    },
+
+    deleteUserAddress: async (id: number) => {
+        return true;
+    },
+
+    setOrder: async (
+            address:Address, 
+            paymentType: "money"|"card", 
+            paymentChange: number, 
+            coupon: string, 
+            cart: CartItem[]
+        )=>{
+            return TEMPORARYorder;
     }
 })
