@@ -23,8 +23,6 @@ import CartProductItem from "../../components/CartProductItem";
 import { CartCookie } from "../../types/CartCookie";
 import AreaCheckout from "../../components/AreaCheckout";
 import ButtonWithIcon from "../../components/ButtonWithIcon";
-import { Address } from "../../types/Address";
-import { Order } from "../../types/Order";
 
 const Checkout = ( data:Props )=>{
     const { setToken, setUser } = useAuthContext();

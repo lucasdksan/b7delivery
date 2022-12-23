@@ -177,5 +177,9 @@ export const libApi = (tenantSlug: string)=>({
             cart: CartItem[]
         )=>{
             return TEMPORARYorder;
+    },
+
+    getOrder: async function(id: number){
+        return TEMPORARYorder;
     }
 })
