@@ -3,6 +3,71 @@
     padding: calc(var(--default-size) * 10) calc(var(--default-size) * 5);
 }
 
+.statusArea {
+    margin-top: calc(var(--default-size) * 4);
+    padding: calc(var(--default-size) * 6) calc(var(--default-size) * 4);
+    border-radius: var(--default-size);
+}
+
+.statusLongLabel {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+}
+
+.statusPct {
+    margin-top: calc(var(--default-size) * 3);
+    height: calc(var(--default-size) * 2);
+    border-radius: var(--default-size);
+    background-color: var( --main-shadow-button);
+}
+
+.statusPctBar {
+    height: inherit;
+    border-radius: var(--default-size);
+}
+
+.statusMsg {
+    margin-top: calc(var(--default-size) * 2);
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 2);
+    line-height: calc(var(--default-size) * 3);
+    color: var(--main-sub-gray);
+}
+
+.orderInfoArea {
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid var(--main-color-line);
+    padding: calc(var(--default-size) * 3) var(--default-zero);
+}
+
+.orderInfoStatus {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-sb);
+    font-size: calc(var(--default-size) * 2);
+    line-height: calc(var(--default-size) * 3);
+    text-align: center;
+    padding: calc(var(--default-size) * 1) calc(var(--default-size) * 4);
+    border-radius: var(--default-size);
+}
+
+.orderInfoDate {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: var(--size-r);
+    font-size: calc(var(--default-size) * 3);
+    line-height: calc(var(--default-size) * 4);
+    text-align: right;
+    flex: 1;
+    color: var(--main-sub-gray-2);
+}
+
 .infoGroup {
     border-top: var(--line-size) solid var(--main-color-line);
     margin-bottom: calc(var(--default-size) * 8);
@@ -22,10 +87,7 @@
 }
 
 .productsQuantity {
-    border-top: var(--line-size) solid var(--main-color-line);
-    border-bottom: var(--line-size) solid var(--main-color-line);
-    margin: calc(var(--default-size) * 5) var(--default-zero) calc(var(--default-size) * 3) var(--default-zero);
-    padding: calc(var(--default-size) * 4) var(--default-zero);
+    padding: var(--default-zero) calc(var(--default-size) * 4);
 }
 
 .pdQtItens {
